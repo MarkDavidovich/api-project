@@ -27,7 +27,7 @@ export const Renderer = () => {
   };
 
   const _renderFriends = (friends) => {
-    const friendList = querySelectorAll("friend");
+    const friendList = document.querySelectorAll("friend");
 
     friendList.forEach((friendItem, index) => {
       const img = friendItem.querySelector(".friend-image");
@@ -40,10 +40,10 @@ export const Renderer = () => {
 
   const _renderPokemon = (pokemon) => {
     const { name, pictureUrl } = pokemon;
-    const pokemonImage = document.querySelector("pokemon-img");
-    const pokemonText = document.querySelector("pokemon-text");
+    const pokemonImage = document.querySelector(".pokemon-img");
+    const pokemonText = document.querySelector(".pokemon-text");
 
-    pokemonImage.setAttribute("src", pictureUrl);
+    pokemonImage.src = pictureUrl;
     pokemonText.textContent = `Favorite Pokemon: ${name}`;
   };
 
