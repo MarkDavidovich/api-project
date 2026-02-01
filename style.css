@@ -14,9 +14,49 @@
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  list-style: none;
 }
 
 body {
   width: 100vw;
   height: 100vh;
+  background: linear-gradient(321deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+}
+
+.main-container,
+.actions-container {
+  display: flex;
+  width: 100%;
+  padding: 2rem 3rem;
+  gap: 1rem;
+}
+
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 1rem;
+}
+
+.user-profile {
+  display: flex;
+  background-color: #fff;
+}
+
+.quote-container {
+  background-color: white;
+}
+
+.pokemon-container {
+  display: flex;
+  background-color: white;
+}
+
+.about-container {
+  background-color: white;
+}
+
+.friends-container {
+  background-color: white;
+  width: 20%;
 }
