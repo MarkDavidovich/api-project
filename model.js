@@ -26,7 +26,10 @@ export const DataModel = () => {
   };
 
   const _formatPokemonData = (pokemon) => {
-    return {};
+    return {
+        name:_capitalize(pokemon.name),
+        pictureUrl: pokemon.sprites.front_default;
+    };
   };
 
   const _getRandomInt = (min, max) => {
