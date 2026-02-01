@@ -1,5 +1,10 @@
+import { saveToStorage, loadFromStorage } from "./storageHelper.js";
+
 export const DataModel = () => {
   const _MAX_POKEMON_ID = 1025;
+  const _USER_DATA_KEY = "userData";
+
+  let _currentUserData = null;
 
   const getRandomUserData = async () => {
     try {
@@ -10,7 +15,14 @@ export const DataModel = () => {
         fetch(`https://baconipsum.com/api/?type=meat-and-filler&sentences=3`).then((r) => r.json()),
       ]);
 
-      return { users: _formatUserData(users), quote: quote.quote, pokemon: _formatPokemonData(pokemon), text: text[0] };
+      _currentUserData = {
+        users: _formatUserData(users),
+        quote: quote.quote,
+        pokemon: _formatPokemonData(pokemon),
+        text: text[0],
+      };
+
+      return _currentUserData;
     } catch (err) {
       console.error(`Error: ${err.message}`);
     }
@@ -41,5 +53,19 @@ export const DataModel = () => {
     return str[0].toUpperCase() + str.substring(1);
   };
 
-  return { getRandomUserData };
+  const saveData = () => {
+    if (_currentUserData) {
+      saveToStorage(_USER_DATA_KEY, _currentUserData);
+    }
+  };
+
+  const loadData = () => {
+    const data = loadFromStorage(_USER_DATA_KEY);
+    if (data) {
+      _currentUserData = data;
+    }
+    return data;
+  };
+
+  return { getRandomUserData, saveData, loadData };
 };
