@@ -25,12 +25,20 @@ export const DataModel = () => {
     }));
   };
 
+  const _formatPokemonData = (pokemon) => {
+    return {};
+  };
+
   const _getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  const _capitalize = (str) => {
+    return str[0].toUpperCase() + str.substring(1);
   };
 
   return { getRandomData };
 };
 
 const dataModel = DataModel();
-dataModel.getRandomData();
+// dataModel.getRandomData();
