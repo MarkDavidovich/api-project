@@ -27,7 +27,7 @@ export const Renderer = () => {
   };
 
   const _renderFriends = (friends) => {
-    const friendList = document.querySelectorAll("friend");
+    const friendList = document.querySelectorAll(".friend");
 
     friendList.forEach((friendItem, index) => {
       const img = friendItem.querySelector(".friend-image");
