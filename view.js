@@ -7,7 +7,7 @@ export const Renderer = () => {
 
     _renderUserInfo(users);
     _renderPokemon(pokemon);
-    quoteText.textContent = quote;
+    quoteText.textContent = `"${quote}"`;
     aboutText.textContent = text;
   };
 
@@ -30,7 +30,7 @@ export const Renderer = () => {
     const friendList = document.querySelectorAll(".friend");
 
     friendList.forEach((friendItem, index) => {
-      const img = friendItem.querySelector(".friend-image");
+      const img = friendItem.querySelector(".friend-img");
       const name = friendItem.querySelector(".friend-name");
 
       img.src = friends[index].pictureUrl;
