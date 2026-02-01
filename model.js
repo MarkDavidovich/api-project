@@ -1,7 +1,7 @@
 export const DataModel = () => {
   const _MAX_POKEMON_ID = 1025;
 
-  const getRandomData = async () => {
+  const getRandomUserData = async () => {
     try {
       const [users, quote, pokemon, text] = await Promise.all([
         fetch(`https://randomuser.me/api/?results=7&inc=name,location,picture`).then((r) => r.json()),
@@ -41,5 +41,5 @@ export const DataModel = () => {
     return str[0].toUpperCase() + str.substring(1);
   };
 
-  return { getRandomData };
+  return { getRandomUserData };
 };
