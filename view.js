@@ -1,44 +1,50 @@
 export const Renderer = () => {
   const renderUserPage = (userData) => {
     const { users, quote, pokemon, text } = userData;
+
+    const quoteText = document.querySelector(".quote-text");
+    const aboutText = document.querySelector(".about-text");
+
+    _renderUserInfo(users);
+    _renderPokemon(pokemon);
+    quoteText.textContent = quote;
+    aboutText.textContent = text;
   };
 
   const _renderUserInfo = (users) => {
-    const friendList = users.slice(1);
+    const friends = users.slice(1);
 
     const userImg = document.querySelector(".user-img");
     const userName = document.querySelector(".user-name");
     const userLocation = document.querySelector(".user-location");
+    const friendList = document.querySelector(".friends-list");
 
     userImg.setAttribute("src", users[0].pictureUrl);
     userName.textContent = `${users[0].firstName} ${users[0].lastName}`;
     userLocation.textContent = `${users[0].city}, ${users[0].state}`;
 
-    for (let friend of friendList) {
-    }
+    _renderFriends(friends);
   };
 
-  const _createFriend = (firstName, lastName, pictureUrl) => {
-    const friendElement = document.createElement("li");
-    const imgContainer = document.createElement("div");
-    const friendImg = document.createElement("img");
-    const friendName = document.createElement("p");
+  const _renderFriends = (friends) => {
+    const friendList = querySelectorAll("friend");
 
-    friendElement.classList.add("friend");
-    imgContainer.classList.add("friend-img-container");
-    friendImg.classList.add("friend-img");
-    friendName.classList.add("friend-name");
+    friendList.forEach((friendItem, index) => {
+      const img = friendItem.querySelector(".friend-image");
+      const name = friendItem.querySelector(".friend-name");
 
-    friendImg.setAttribute("src", pictureUrl);
-    friendImg.setAttribute("alt", `${firstName}'s picture`);
+      img.src = friends[index].pictureUrl;
+      name.textContent = `${friends[index].firstName} ${friends[index].lastName}`;
+    });
+  };
 
-    friendName.textContent = `${firstName} ${lastName}`;
+  const _renderPokemon = (pokemon) => {
+    const { name, pictureUrl } = pokemon;
+    const pokemonImage = document.querySelector("pokemon-img");
+    const pokemonText = document.querySelector("pokemon-text");
 
-    imgContainer.appendChild(friendImg);
-    friendElement.appendChild(imgContainer);
-    friendElement.appendChild(friendName);
-
-    return friendElement;
+    pokemonImage.setAttribute("src", pictureUrl);
+    pokemonText.textContent = `Favorite Pokemon: ${name}`;
   };
 
   return { renderUserPage };
