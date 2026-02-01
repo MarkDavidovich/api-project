@@ -47,5 +47,7 @@ export const Renderer = () => {
     pokemonText.textContent = `Favorite Pokemon: ${name}`;
   };
 
+  //
+
   return { renderUserPage };
 };

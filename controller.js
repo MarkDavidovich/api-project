@@ -23,3 +23,5 @@ loadButton.addEventListener("click", () => {
   const data = dataModel.loadData();
   renderer.renderUserPage(data);
 });
+
+loadAndRenderData();
