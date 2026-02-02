@@ -5,9 +5,7 @@ export const DataModel = () => {
   const _USER_DATA_KEY = "userData";
   const _SAVED_PROFILES_KEY = "savedProfiles";
 
-  let _idCounter = 0;
   let _currentUserData = null;
-  let savedProfiles = [];
 
   const getRandomUserData = async () => {
     try {
@@ -23,10 +21,9 @@ export const DataModel = () => {
         quote: quote.quote,
         pokemon: _formatPokemonData(pokemon),
         text: text[0],
-        id: _idCounter,
+        id: Date.now(),
       };
 
-      _idCounter++;
       return _currentUserData;
     } catch (err) {
       console.error(`Error: ${err.message}`);
@@ -82,13 +79,19 @@ export const DataModel = () => {
     return loadFromStorage(_SAVED_PROFILES_KEY) || [];
   };
 
-  const loadSavedProfile = (idx) => {
+  const loadSavedProfile = (id) => {
     let savedProfiles = loadFromStorage(_SAVED_PROFILES_KEY);
-    if (!savedProfiles || savedProfiles[idx]) {
+
+    if (!savedProfiles) {
+      return null;
+    }
+    const foundProfile = savedProfiles.find((profile) => profile.id === id);
+
+    if (!foundProfile) {
       return null;
     }
 
-    _currentUserData = savedProfiles[idx];
+    _currentUserData = foundProfile;
     return _currentUserData;
   };
 
