@@ -24,4 +24,4 @@ loadButton.addEventListener("click", () => {
   renderer.renderUserPage(data);
 });
 
-loadAndRenderData();
+// loadAndRenderData();

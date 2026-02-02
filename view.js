@@ -26,6 +26,8 @@ export const Renderer = () => {
     _renderFriends(friends);
   };
 
+  const renderSavedUsers = (savedData) => {};
+
   const _renderFriends = (friends) => {
     const friendList = document.querySelectorAll(".friend");
 
@@ -46,8 +48,6 @@ export const Renderer = () => {
     pokemonImage.src = pictureUrl;
     pokemonText.textContent = `Favorite Pokemon: ${name}`;
   };
-
-  //
 
   return { renderUserPage };
 };

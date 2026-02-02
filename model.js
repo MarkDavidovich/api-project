@@ -3,8 +3,11 @@ import { saveToStorage, loadFromStorage } from "./storageHelper.js";
 export const DataModel = () => {
   const _MAX_POKEMON_ID = 1025;
   const _USER_DATA_KEY = "userData";
+  const _SAVED_PROFILES_KEY = "savedProfiles";
 
+  let _idCounter = 0;
   let _currentUserData = null;
+  let savedProfiles = [];
 
   const getRandomUserData = async () => {
     try {
@@ -20,8 +23,10 @@ export const DataModel = () => {
         quote: quote.quote,
         pokemon: _formatPokemonData(pokemon),
         text: text[0],
+        id: _idCounter,
       };
 
+      _idCounter++;
       return _currentUserData;
     } catch (err) {
       console.error(`Error: ${err.message}`);
@@ -65,6 +70,26 @@ export const DataModel = () => {
       _currentUserData = data;
     }
     return data;
+  };
+
+  const saveCurrentProfile = () => {
+    let savedProfiles = loadFromStorage(_SAVED_PROFILES_KEY) || [];
+    savedProfiles.push(_currentUserData);
+    saveToStorage(_SAVED_PROFILES_KEY, savedProfiles);
+  };
+
+  const getSavedProfiles = () => {
+    return loadFromStorage(_SAVED_PROFILES_KEY) || [];
+  };
+
+  const loadSavedProfile = (idx) => {
+    let savedProfiles = loadFromStorage(_SAVED_PROFILES_KEY);
+    if (!savedProfiles || savedProfiles[idx]) {
+      return null;
+    }
+
+    _currentUserData = savedProfiles[idx];
+    return _currentUserData;
   };
 
   return { getRandomUserData, saveData, loadData };
