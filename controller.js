@@ -11,13 +11,17 @@ const loadButton = document.querySelector(".load-btn");
 const loadAndRenderData = async () => {
   const randomUserData = await dataModel.getRandomUserData();
   renderer.renderUserPage(randomUserData);
+  renderer.renderSavedUsers(dataModel.getSavedProfiles());
 };
 
 generateButton.addEventListener("click", loadAndRenderData);
 
 saveButton.addEventListener("click", () => {
-  dataModel.saveData();
+  dataModel.saveCurrentProfile();
 });
+// saveButton.addEventListener("click", () => {
+//   dataModel.saveData();
+// });
 
 // loadButton.addEventListener("click", () => {
 //   const data = dataModel.loadData();
