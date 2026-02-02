@@ -17,7 +17,6 @@ export const Renderer = () => {
     const userImg = document.querySelector(".user-img");
     const userName = document.querySelector(".user-name");
     const userLocation = document.querySelector(".user-location");
-    const friendList = document.querySelector(".friends-list");
 
     userImg.setAttribute("src", users[0].pictureUrl);
     userName.textContent = `${users[0].firstName} ${users[0].lastName}`;
@@ -29,6 +28,7 @@ export const Renderer = () => {
   const renderSavedUsers = (profiles) => {
     const loadMenu = document.querySelector(".load-menu");
 
+    loadMenu.innerHTML = "";
     for (const profile of profiles) {
       const { users, id } = profile;
       const mainUser = users[0];
