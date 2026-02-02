@@ -154,6 +154,31 @@ body {
 .load-menu {
   width: 100%;
   display: flex;
+  gap: 1rem;
+}
+
+.saved-user {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 7px 18px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+}
+
+.saved-img-container {
+  width: 80px;
+  height: 80px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  background-color: red;
+}
+
+.saved-img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.saved-name-container {
+  padding: 0.3rem;
 }
 
 @media (max-width: 700px) {
