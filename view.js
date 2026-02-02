@@ -39,6 +39,12 @@ export const Renderer = () => {
     }
   };
 
+  const toggleLoadMenu = () => {
+    const loadMenu = document.querySelector(".load-menu");
+
+    loadMenu.classList.toggle(".show");
+  };
+
   const _createSavedUser = (pictureUrl, firstName, lastName, id) => {
     const savedUser = document.createElement("div");
     const savedImgContainer = document.createElement("div");
@@ -89,5 +95,5 @@ export const Renderer = () => {
     pokemonText.textContent = `Favorite Pokemon: ${name}`;
   };
 
-  return { renderUserPage };
+  return { renderUserPage, renderSavedUsers, toggleLoadMenu };
 };
