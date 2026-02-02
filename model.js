@@ -92,5 +92,5 @@ export const DataModel = () => {
     return _currentUserData;
   };
 
-  return { getRandomUserData, saveData, loadData };
+  return { getRandomUserData, saveData, loadData, saveCurrentProfile, getSavedProfiles, loadSavedProfile };
 };
