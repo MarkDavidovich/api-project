@@ -42,7 +42,7 @@ export const Renderer = () => {
   const toggleLoadMenu = () => {
     const loadMenu = document.querySelector(".load-menu");
 
-    loadMenu.classList.toggle(".show");
+    loadMenu.classList.toggle("show");
   };
 
   const _createSavedUser = (pictureUrl, firstName, lastName, id) => {
