@@ -18,8 +18,7 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(148deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
@@ -149,7 +148,7 @@ body {
 
 .users-container {
   padding-top: 0;
-  height: 20%;
+  height: 10%;
 }
 
 .load-menu {
@@ -157,4 +156,31 @@ body {
   display: flex;
 }
 
-/* Add responsive design */
+@media (max-width: 700px) {
+  * {
+    text-align: center;
+  }
+
+  .main-container {
+    flex-direction: column;
+  }
+
+  .main-container,
+  .actions-container,
+  .users-container {
+    padding: 1rem;
+  }
+
+  .user-info-container,
+  .friends-container {
+    width: 100%;
+  }
+
+  .user-profile {
+    justify-content: center;
+  }
+
+  .actions-container {
+    padding: 0 1rem;
+  }
+}
