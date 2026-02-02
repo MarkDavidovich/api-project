@@ -168,6 +168,7 @@ body {
 }
 
 .saved-img-container {
+  pointer-events: none;
   width: 90px;
   height: 90px;
 }
@@ -180,6 +181,7 @@ body {
 }
 
 .saved-name-container {
+  pointer-events: none;
   padding: 0.5rem;
   text-align: center;
   font-weight: 500;
@@ -218,5 +220,22 @@ body {
 
   .actions-container {
     padding: 0 1rem;
+  }
+
+  .load-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .saved-user {
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .saved-img {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.5rem;
   }
 }
