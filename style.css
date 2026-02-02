@@ -194,6 +194,12 @@ body {
   display: flex;
 }
 
+.load-message {
+  font-size: 20px;
+  font-weight: 500;
+  justify-content: center;
+}
+
 @media (max-width: 700px) {
   * {
     text-align: center;

@@ -27,8 +27,16 @@ export const Renderer = () => {
 
   const renderSavedUsers = (profiles) => {
     const loadMenu = document.querySelector(".load-menu");
+    loadMenu.classList.remove("load-message");
 
     loadMenu.innerHTML = "";
+
+    if (!profiles || profiles.length === 0) {
+      loadMenu.classList.add("load-message");
+      loadMenu.textContent = "Try saving a user first! 👻";
+      return;
+    }
+
     for (const profile of profiles) {
       const { users, id } = profile;
       const mainUser = users[0];
