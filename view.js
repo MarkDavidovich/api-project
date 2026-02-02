@@ -26,7 +26,47 @@ export const Renderer = () => {
     _renderFriends(friends);
   };
 
-  const renderSavedUsers = (savedData) => {};
+  const renderSavedUsers = (profiles) => {
+    const loadMenu = document.querySelector(".load-menu");
+
+    for (const profile of profiles) {
+      const { users, id } = profile;
+      const mainUser = users[0];
+
+      const savedUserElement = _createSavedUser(mainUser.pictureUrl, mainUser.firstName, mainUser.lastName, id);
+
+      loadMenu.appendChild(savedUserElement);
+    }
+  };
+
+  const _createSavedUser = (pictureUrl, firstName, lastName, id) => {
+    const savedUser = document.createElement("div");
+    const savedImgContainer = document.createElement("div");
+    const savedImg = document.createElement("img");
+    const savedNameContainer = document.createElement("div");
+    const savedFirstName = document.createElement("p");
+    const savedLastName = document.createElement("p");
+
+    savedImg.src = pictureUrl;
+    savedImg.alt = `${firstName}'s photo`;
+    savedFirstName.textContent = firstName;
+    savedLastName.textContent = lastName;
+    savedUser.dataset.id = id;
+
+    savedUser.classList.add("saved-user");
+    savedImgContainer.classList.add("saved-img-container");
+    savedImg.classList.add("saved-img");
+    savedNameContainer.classList.add("saved-name-container");
+
+    savedImgContainer.appendChild(savedImg);
+    savedNameContainer.appendChild(savedFirstName);
+    savedNameContainer.appendChild(savedLastName);
+
+    savedUser.appendChild(savedImgContainer);
+    savedUser.appendChild(savedNameContainer);
+
+    return savedUser;
+  };
 
   const _renderFriends = (friends) => {
     const friendList = document.querySelectorAll(".friend");
