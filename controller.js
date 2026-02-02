@@ -19,9 +19,13 @@ saveButton.addEventListener("click", () => {
   dataModel.saveData();
 });
 
+// loadButton.addEventListener("click", () => {
+//   const data = dataModel.loadData();
+//   renderer.renderUserPage(data);
+// });
+
 loadButton.addEventListener("click", () => {
-  const data = dataModel.loadData();
-  renderer.renderUserPage(data);
+  renderer.toggleLoadMenu();
 });
 
 // loadAndRenderData();
